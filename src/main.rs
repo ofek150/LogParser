@@ -3,7 +3,7 @@ use clap::Parser;
 use log_parser::parse_log_file;
 
 #[derive(Parser, Debug)]
-#[command(name = "log-analyzer", version, about = "Parses log files")]
+#[command(name = "log-parser", version, about = "Parses log files")]
 struct Cli {
     log_file_path: std::path::PathBuf,
 }
