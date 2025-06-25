@@ -77,3 +77,26 @@ fn extract_log_level(log_line: &str) -> Result<LogLevel> {
         Err(anyhow!("Unrecognized log level"))
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use chrono::NaiveDateTime;
+
+    #[test]
+    fn test_extract_date_valid() {
+        let line = "2025-06-25 13:00:03,887 INFO something happened";
+        let result = extract_date(line).unwrap();
+        let expected =
+            NaiveDateTime::parse_from_str("2025-06-25 13:00:03,887", "%Y-%m-%d %H:%M:%S,%f")
+                .unwrap();
+        assert_eq!(result, expected);
+    }
+
+    #[test]
+    fn test_extract_log_level_info() {
+        let line = "2025-06-25 13:00:03,887 INFO something happened";
+        let result = extract_log_level(line).unwrap();
+        assert!(matches!(result, LogLevel::Info));
+    }
+}

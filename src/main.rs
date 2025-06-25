@@ -1,9 +1,6 @@
-mod constants;
-mod model;
-mod parser;
 
-use crate::parser::parse_log_file;
 use clap::Parser;
+use log_parser::parse_log_file;
 
 #[derive(Parser, Debug)]
 #[command(name = "log-analyzer", version, about = "Parses log files")]
