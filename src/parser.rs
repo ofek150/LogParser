@@ -1,12 +1,11 @@
 use anyhow::{anyhow, Result};
 use chrono::NaiveDateTime;
-use log::{error, warn};
 use std::collections::HashMap;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 use std::path::{Path, PathBuf};
 use std::thread;
-use tracing::instrument;
+use tracing::{error, instrument};
 
 use crate::constants::DATE_STRING_LEN;
 use crate::errors::ParseFileError;
@@ -92,7 +91,7 @@ fn extract_date(log_line: &str) -> Result<NaiveDateTime> {
         return Err(anyhow!("Line too short to contain a date"));
     }
     let date_part = &log_line[..DATE_STRING_LEN];
-    let dt = NaiveDateTime::parse_from_str(date_part, "%Y-%m-%d %H:%M:%S,%f")?;
+    let dt = NaiveDateTime::parse_from_str(date_part, "%Y-%m-%d %H:%M:%S,%3f")?;
     Ok(dt)
 }
 
@@ -180,7 +179,7 @@ mod tests {
         let line = "2025-06-25 13:00:03,887 [INFO] something happened";
         let result = extract_date(line).unwrap();
         let expected =
-            NaiveDateTime::parse_from_str("2025-06-25 13:00:03,887", "%Y-%m-%d %H:%M:%S,%f")
+            NaiveDateTime::parse_from_str("2025-06-25 13:00:03,887", "%Y-%m-%d %H:%M:%S,%3f")
                 .unwrap();
         assert_eq!(result, expected);
     }
