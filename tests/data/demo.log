@@ -1,0 +1,23 @@
+2025-06-25 13:00:01,001 [INFO]    AuthService      – Server started
+2025-06-25 13:00:02,514 [INFO]    DBPool           – Connection pool initialised (size=10)
+2025-06-25 13:00:03,887 [INFO]    WebServer        – Listening on :8080
+
+dasdask
+2025-06-25 13:01:07,732 [WARNING] AuthService      – Slow login detected (user=tsippi, 3 s)
+2025-06-25 13:02:11,029 [INFO]    Scheduler        – Job “cleanup-temp” queued
+2025-06-25 13:03:22,441 [ERROR]   DBPool           – Connection lost to db-01.example.net
+2025-06-25 13:03:22,452 [INFO]    DBPool           – Retrying (attempt 1/3) …
+2025-06-25 13:03:23,067 [ERROR]   DBPool           – Retry failed (timeout)
+2025-06-25 13:03:24,120 [ERROR]   DBPool           – Giving up – escalating
+2025-06-25 13:03:24,480 [WARNING] AlertManager     – PagerDuty throttle engaged
+2025-06-25 13:04:10,200 [INFO]    Metrics          – 200 requests/min in last window
+2025-06-25 13:05:56,912 [WARNING] WebServer        – High memory use (85 %)
+
+2025-06-25 13:06:30,333 [INFO]    Cache            – Evicted 1 024 stale keys
+2025-06-25 13:07:01,005 [ERROR]   Worker-42        – Panic: index out of bounds
+2025-06-25 13:07:01,270 [INFO]    Worker-42        – Restarted successfully
+2025-06-25 13:08:45,777 [WARNING] Scheduler        – Job “backup” over-ran by 2 m 15 s
+2025-06-25 13:09:12,008 [INFO]    AuthService      – User tsippi logged out
+2025-06-25 13:10:54,399 [ERROR]   WebServer        – 500 on /api/v1/payments (NullPointerException)
+2025-06-25 13:11:05,427 [INFO]    Monitor          – Health-check ok (19/19 services green)
+2025-06-25 13:11:42,117 [WARNING] Monitor          – Disk “/dev/sda” at 92 % capacity

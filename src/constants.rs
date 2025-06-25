@@ -1,0 +1,1 @@
+pub const DATE_STRING_LEN: usize = 23;
